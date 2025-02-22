@@ -1,28 +1,29 @@
-import tkinter as tk
+from tkinter import *
 from tkinter import filedialog, Scrollbar, Menu
 from tkinter import Canvas as canvas
 from PIL import Image, ImageTk
 import importlib
 import os
 
-# Definição de cores
-branco = "#ffffff" # Branco
-azul = "#8f88ba" # Azul
+corFont = '#3a6332'
+corFundo = '#aaf99b'
+fontGrande = 'Time 20'
+fontNormal = 'Time 10'
+azul = '#00FFFF'
 
-# Variáveis globais
-imagem_original = None # Imagem original carregada
+
+imagem_original = None
 imagem_editada = None
-plugins = {} # Dicionário de plugins
+plugins = {}
 zoom_factor = 1.0
 canvas_pos_x, canvas_pos_y = 0, 0
 mouse_x, mouse_y = 0, 0 
 
-
 def atualizar_lista_plugins():
-    for widget in frame_plugins.winfo_children():
+     for widget in frame_plugins.winfo_children():
         widget.destroy()
-    for nome_plugin, (modulo, icone) in plugins.items():
-        btn_efeito = tk.Button(
+     for nome_plugin, (modulo, icone) in plugins.items():
+        btn_efeito = Button(
             frame_plugins,
             text=f"{icone} {nome_plugin}",
             command=lambda m=modulo: aplicar_efeito(m),
@@ -30,14 +31,14 @@ def atualizar_lista_plugins():
             anchor="w",
         )
         btn_efeito.pack(pady=2)
-    btn_refresh = tk.Button(
+        btn_refresh = Button(
         frame_plugins,
         text="🔄 Refresh Plugins",
         anchor="w",
         command=atualizar_plugins,
         width=18,
     )
-    btn_refresh.pack(pady=5)
+# btn_refresh.pack(pady=5)
 
 
 
@@ -48,7 +49,7 @@ def aplicar_efeito(modulo):
         exibir_imagem(imagem_editada)
 
 def atualizar_plugins():
-    # carregar_plugins()
+    #carregar_plugins()
     atualizar_lista_plugins()
 
 
@@ -85,7 +86,7 @@ def exibir_imagem(img):
     canvas.create_image(
         canvas.winfo_width() // 2,
         canvas.winfo_height() // 2,
-        anchor=tk.CENTER,
+        anchor= CENTER,
         image=img_tk,
     )
     canvas.config(scrollregion=canvas.bbox("all"))
@@ -98,8 +99,8 @@ def restaurar_original():
         exibir_imagem(imagem_editada)
 
 
-
-def zoom(event):
+# 🔍 Zoom com Scroll
+def zoom(event):# 🔍 Zoom com Scroll
     global zoom_factor
     if event.delta > 0:
         zoom_factor = 1.1
@@ -117,6 +118,7 @@ def iniciar_movimento(event):
 
 
 def mover_imagem(event):
+    
     global mouse_x, mouse_y
     dx = (mouse_x - event.x) / 50
     dy = (mouse_y - event.y) / 50
@@ -124,13 +126,13 @@ def mover_imagem(event):
     canvas.yview_moveto(canvas_pos_y[0] + dy)
 
 # 📌 Criar interface gráfica
-root = tk.Tk()
+root = Tk()
 root.title("Pythonshop")
 root.geometry("1024x800")
                          ##########//##########
-menu_superior = tk.Menu(root)
+menu_superior = Menu(root)
 root.config(menu=menu_superior)
-menu_arquivo = tk.Menu(menu_superior, tearoff=0)
+menu_arquivo = Menu(menu_superior, tearoff=0)
 menu_arquivo.add_command(label="📂 Abrir", command=abrir_imagem)
 menu_arquivo.add_command(label="💾 Salvar", command=salvar_imagem)
 menu_arquivo.add_command(label="🔄 Restaurar", command=restaurar_original)
@@ -138,39 +140,53 @@ menu_arquivo.add_separator()
 menu_arquivo.add_command(label="❌ Sair", command=root.quit)
 menu_superior.add_cascade(label="Arquivo", menu=menu_arquivo)
 
-frame_principal = tk.Frame(root)
-frame_principal.pack(fill=tk.BOTH, expand=True)
+frame_principal = Frame(root)
+frame_principal.pack(fill=BOTH, expand=True)
 
-frame_menu = tk.Frame(frame_principal, width=200, bg=azul)
-frame_menu.pack(side=tk.LEFT, fill=tk.Y)
+frame_menu = Frame(frame_principal, width=200, bg=corFundo)
+frame_menu.pack(side=LEFT, fill=Y)
 
-lbl_filtros = tk.Label(frame_menu, text="Opções", bg=azul, font=("Arial", 12, "bold"))
+lbl_filtros = Label(frame_menu, text="Opções", bg=corFundo, font=("Arial", 12, "bold"))
 lbl_filtros.pack(pady=10)
 
-btn_abrir = tk.Button(
+btn_abrir = Button(
     frame_menu, text=" Abrir Imagem", anchor="w", command=abrir_imagem, width=18
 )
 btn_abrir.pack(pady=5)
 
-btn_salvar = tk.Button(
-    frame_menu, text='Salvar', ancor='w', command=restaurar_original, width=18
+btn_salvar = Button(
+    frame_menu, text='Salvar', command=salvar_imagem, width=18
 )
 btn_salvar.pack(pady=5)
 
-btn_restaurar = tk.Button(
+btn_restaurar = Button(
     frame_menu, text="Restaurar", anchor="w", command=restaurar_original, width=18
 )
 btn_restaurar.pack(pady=5)
 
-lbl_filtros = tk.Label(frame_menu, text="Filtros", bg=azul, font=("Arial", 12, "bold"))
+lbl_filtros =Label(frame_menu, text="Filtros", bg=corFundo, font=("Arial", 12, "bold"))
 lbl_filtros.pack(pady=10)
 
-frame_canvas = tk.Frame(frame_principal)
-frame_canvas.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+frame_canvas = Frame(frame_principal)
+frame_canvas.pack(side=RIGHT, fill=BOTH, expand=True)
 
 canvas = canvas(frame_canvas, bg="#000000")
-canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+canvas.pack(side=LEFT, fill=BOTH, expand=True)
 
+scroll_x = Scrollbar(frame_canvas, orient=HORIZONTAL, command=canvas.xview)
+scroll_x.pack(side=BOTTOM, fill=X)
+scroll_y = Scrollbar(frame_canvas, orient=VERTICAL, command=canvas.yview)
+scroll_y.pack(side=RIGHT, fill=Y)
+canvas.config(xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
 
+frame_plugins =Frame(frame_menu, padx=5, pady=5, bg=azul)
+frame_plugins.pack(fill=BOTH, expand=True)
+
+# carregar_plugins()
+atualizar_lista_plugins()
+
+canvas.bind("<MouseWheel>", zoom)
+canvas.bind("<ButtonPress-2>", iniciar_movimento)
+canvas.bind("<B2-Motion>", mover_imagem)
 
 root.mainloop()
