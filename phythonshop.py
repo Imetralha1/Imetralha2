@@ -126,10 +126,8 @@ def restaurar_original():
         imagem_editada = imagem_original.copy()
         exibir_imagem(imagem_editada)
 
-
-
 # 🔍 Zoom com Scroll
-def zoom(event):# 🔍 Zoom com Scroll
+def zoom(event):
     global zoom_factor
     if event.delta > 0:
         zoom_factor *= 1.1
@@ -145,8 +143,8 @@ def iniciar_movimento(event):
     canvas_pos_x, canvas_pos_y = canvas.xview(), canvas.yview()
 
 
+# ✋ Mover a imagem
 def mover_imagem(event):
-    
     global mouse_x, mouse_y
     dx = (mouse_x - event.x) / 50
     dy = (mouse_y - event.y) / 50
@@ -157,7 +155,8 @@ def mover_imagem(event):
 root = tk.Tk()
 root.title("Pythonshop")
 root.geometry("1024x800")
-##########//##########
+
+# 📌 Criar layout principal
 menu_superior = tk.Menu(root)
 menu_superior = Menu(root)
 root.config(menu=menu_superior)
@@ -193,12 +192,9 @@ lbl_filtros.pack(pady=10)
 
 frame_canvas = tk.Frame(frame_principal)
 frame_canvas.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
-frame_canvas = Frame(frame_principal)
-frame_canvas.pack(side=RIGHT, fill=BOTH, expand=True)
 
 canvas = canvas(frame_canvas, bg="#000000")
 canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-canvas.pack(side=LEFT, fill=BOTH, expand=True)
 
 scroll_x = Scrollbar(frame_canvas, orient=HORIZONTAL, command=canvas.xview)
 scroll_x.pack(side=BOTTOM, fill=X)
