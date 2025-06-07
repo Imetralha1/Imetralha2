@@ -1,0 +1,50 @@
+{
+  "perguntas": [
+    {
+      "pergunta": "Qual é a temporada de lançamento da Mandy?",
+      "respostas": {
+        "resposta1": "18ª Temporada",
+        "resposta2": "16ª Temporada",
+        "resposta3": "14ª Temporada",
+        "resposta4": "20ª Temporada",
+        "correta": "16ª Temporada"
+      },
+      "img": "el-primo-dance.gif",
+      "cor": "#ffffff"
+    },
+    {
+      "pergunta": "Qual foi o motivo oficial dado pela Supercell para a remoção temporária do Brawler “Sandy” do modo Showdown no lançamento da atualização de 2023?",
+      "respostas": {
+        "resposta1": "Porque Sandy tinha um bug que travava o jogo no Showdown.",
+        "resposta3": "Porque seu ataque causava dano excessivo e rápido demais, quebrando o equilíbrio do modo.",
+        "resposta2": "Porque Sandy tinha um bug que travava o jogo no Showdown.",
+        "resposta4": "Porque sua super causava bugs que faziam ele ficar preso em paredes no Showdown.",
+        "correta": "Porque o seu ataque ficava invisível na sua super"
+      },
+      "img": "default.png",
+      "cor": "#ffffff"
+    },
+    {
+      "pergunta": "O que fazem os dois Power Stars do Finx?",
+      "respostas": {
+        "resposta1": "Criam um escudo e aumentam o tempo de invisibilidade após usar a super.",
+        "resposta2": "Aumentam a velocidade de movimento e reduzem o tempo de recarga da super enquanto o Finx está em chamas.",
+        "resposta3": "Aumentam o dano do ataque principal e aumentam o alcance do ataque principal enquanto o Finx está em chamas.",
+        "resposta4": "Aumentam o dano do ataque principal e criam um escudo que reduz o dano recebido enquanto o Finx está em chamas",
+        "correta": "Aumentam o dano do ataque principal e aumentam o alcance do ataque principal enquanto o Finx está em chamas."
+      },
+      "img": "default.png",
+      "cor": "#ffffff"
+    },
+    {
+      "pergunta": "Qual é o nome do 6º Brawler lendário que foi adicionado no Brawl Stars?",
+      "respostas": {
+        "resposta1": "",
+        "resposta2": "Mandy",
+        "resposta3": "Sandy",
+        "resposta4": "El Primo",
+        "correta": "Finx"
+      },
+      "img": "default.png",
+      "cor": "#ffffff"
+    }
