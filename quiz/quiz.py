@@ -5,13 +5,13 @@ import os
 import json
 
 # Cores principais
-COR_FUNDO = "#F0F0F0"
+COR_FUNDO = '#0ffe72'
 COR_TEXTO = "#222222"
 COR_BOTAO = "#4CAF50"
 COR_BOTAO_TEXTO = "#FFFFFF"
-
 # Variáveis do jogo
 perguntas = []
+respondidas = set()
 respondidas_certas = set()
 nome_jogador = ""
 acertos = 0
@@ -70,8 +70,7 @@ def criar_botao_resposta(opcao, frame, correta, idx, janela):
         text=opcao,
         bg=COR_BOTAO,
         fg=COR_BOTAO_TEXTO,
-        width=30,
-        height=2,
+        width=100,
         anchor="w"
     )
 
@@ -83,6 +82,7 @@ def criar_botao_resposta(opcao, frame, correta, idx, janela):
         else:
             erros += 1
         salvar_placar()
+        respondidas.add(idx)
         janela.destroy()
         mostrar_pergunta()
 
@@ -93,10 +93,13 @@ def criar_botao_resposta(opcao, frame, correta, idx, janela):
 def mostrar_pergunta():
     global perguntas
 
-    restantes = [i for i in range(len(perguntas)) if i not in respondidas_certas]
+    # restantes = [i for i in range(len(perguntas)) if i not in respondidas_certas]
+    restantes = [i for i in range(len(perguntas)) if i not in respondidas]
+
     if not restantes:
         messagebox.showinfo("Fim de Jogo", f"{nome_jogador}, parabéns!\nAcertos: {acertos} | Erros: {erros}")
         salvar_placar()
+        perguntas.p
         root.destroy()
         return
 
@@ -105,7 +108,7 @@ def mostrar_pergunta():
 
     janela = tk.Toplevel(bg=COR_FUNDO)
     janela.title("Pergunta")
-    janela.minsize(400, 400)
+    janela.minsize(1000, 400)
     janela.protocol("WM_DELETE_WINDOW", lambda: fechar_e_sair(janela))
 
     tk.Label(janela, text=pergunta["pergunta"], font=("Arial", 14), bg=COR_FUNDO, fg=COR_TEXTO, wraplength=380).pack(pady=10)

@@ -1,6 +1,54 @@
 {
   "perguntas": [
     {
+      "pergunta": "Qual é o nome do poder de estela que faz com que o Byron que faz com que seu ataque, de cada 3,5 em 3,5 segundos, atravesse os alvos?",
+      "respostas": {
+        "resposta1": "Bem dosado",
+        "resposta2": "Injeção",
+        "resposta3": "Dose Dupla",
+        "resposta4": " Cura Total",
+        "correta": "Injeção"
+      },
+      "img": "img3.png",
+      "cor": "#ffffff"
+    },
+    {
+      "pergunta": "Quais são os dois Poderes de Estrela da Brawler Pam?",
+      "respostas": {
+        "resposta1": "Mamãe Cuida e Campo Vital",
+        "resposta2": "Zona de Conforto e Regeneração Rápida",
+        "resposta3": "Mamãe Cuida e Zona de Conforto",
+        "resposta4": "Mamãe Cuida e Campo Vital",
+        "correta": "Mamãe Cuida e Zona de Conforto"
+      },
+      "img": "img4.png",
+      "cor": "#ffffff"
+    },
+    {
+      "pergunta": "Quantos trios há completos no Brawl Stars?",
+      "respostas": {
+        "resposta1": "16",
+        "resposta2": "17",
+        "resposta3": "18",
+        "resposta4": "15",
+        "correta": "17"
+      },
+      "img": "default.png",
+      "cor": "#ffffff"
+    },
+    {
+      "pergunta": "Qual foi o prémio da equipa vencedora do campeonato de 2022: ZETA ZERO?",
+      "respostas": {
+        "resposta1": "$400.000",
+        "resposta2": "$450.000",
+        "resposta3": "$500.000",
+        "resposta4": "$300.000",
+        "correta": "$400.000"
+      },
+      "img": "default.png",
+      "cor": "#ffffff"
+    },
+    {
       "pergunta": "Qual é a temporada de lançamento da Mandy?",
       "respostas": {
         "resposta1": "18ª Temporada",
@@ -17,7 +65,7 @@
       "respostas": {
         "resposta1": "Porque Sandy tinha um bug que travava o jogo no Showdown.",
         "resposta3": "Porque seu ataque causava dano excessivo e rápido demais, quebrando o equilíbrio do modo.",
-        "resposta2": "Porque Sandy tinha um bug que travava o jogo no Showdown.",
+        "resposta2": "Porque o seu ataque ficava invisível na sua super.",
         "resposta4": "Porque sua super causava bugs que faziam ele ficar preso em paredes no Showdown.",
         "correta": "Porque o seu ataque ficava invisível na sua super"
       },
@@ -35,16 +83,18 @@
       },
       "img": "default.png",
       "cor": "#ffffff"
-    },
+     },
     {
-      "pergunta": "Qual é o nome do 6º Brawler lendário que foi adicionado no Brawl Stars?",
+      "pergunta": "Na Temporada 4 do Brawl Pass, qual foi o único brawler que recebeu um nerf durante toda a temporada, e qual foi exatamente a mudança feita??",
       "respostas": {
-        "resposta1": "",
-        "resposta2": "Mandy",
-        "resposta3": "Sandy",
-        "resposta4": "El Primo",
-        "correta": "Finx"
+        "resposta1": "Foi o Eugénio, e a mudança feita foi o alcance do seu ataque principal foi reduzido ligeiramente",
+       "resposta2": "Foi a torreta da Pam que perdeu algum dano do seu poder de estrela de causar dano nos inimigos.",
+        "resposta3": "Foi o Spike, cujo dano dos progétil e a cura do poder de estrela, foram reduzidos.",
+        "resposta4": "Foi o Crow que teve reduções na taxa de veneno do super e alcance reduzido.",
+        "correta": "Foi o Eugénio, e a mudança feita foi o alcance do seu ataque principal foi reduzido ligeiramente"
       },
-      "img": "default.png",
+      "img": "img.png",
       "cor": "#ffffff"
     }
+  ]
+}
